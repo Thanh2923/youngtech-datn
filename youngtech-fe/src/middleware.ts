@@ -39,19 +39,19 @@ export async function middleware(req: NextRequest) {
 
    
   if (url.includes('/dashboard/quanly-kinhdoanh') ) {
-    if (token.role !== 'businessEmployee') {
+    if ( token.role !== 'admin' || token.role !== 'businessEmployee') {
       return NextResponse.redirect(new URL('/dashboard', req.url)); // Chuyển hướng về trang chủ nếu không phải admin hoặc storekeeper
     }
   }
 
   if (url.includes('/dashboard/quanly-nha-cungcap') ) {
-    if (token.role !== 'businessEmployee') {
+    if (token.role !== 'admin' || token.role !== 'businessEmployee') {
       return NextResponse.redirect(new URL('/dashboard', req.url)); // Chuyển hướng về trang chủ nếu không phải admin hoặc storekeeper
     }
   }
 
   if (url.includes('/dashboard/quanly-nhap-khohang') ) {
-    if (token.role !== 'businessEmployee') {
+    if (token.role !== 'admin' || token.role !== 'businessEmployee') {
       return NextResponse.redirect(new URL('/dashboard', req.url)); // Chuyển hướng về trang chủ nếu không phải admin hoặc storekeeper
     }
   }
